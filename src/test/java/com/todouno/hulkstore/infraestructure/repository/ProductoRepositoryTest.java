@@ -134,33 +134,7 @@ public class ProductoRepositoryTest {
         productoRepository.create(new Producto("isbn", "nombre", 0F, 123, Material.ALGODON, new Date(), "imageURL", "descripcion"));
     }
 
-    @Test
-    @InSequence(13)
-    public void NotFailCreatingAProductoWithNullISBN() {
-        Producto productoFound = productoRepository.create(new Producto(null, "nombre", 12F, 123, Material.ALUMINIO, new Date(), "imageURL", "descripcion"));
-        assertTrue(productoFound.getCodigo().startsWith("13-84356-"));
-    }
+   
 
-    @Test(expected = Exception.class)
-    @InSequence(14)
-    public void FailInvokingFindByIdWithNull() {
-        productoRepository.find(null);
-    }
-
-    @Test
-    @InSequence(15)
-    public void NotFindUnknownId() {
-        assertNull(productoRepository.find(99999L));
-    }
-
-    @Test(expected = Exception.class)
-    @InSequence(16)
-    public void FailInvokingDeleteByIdWithNull() {
-        productoRepository.delete(null);
-    }
-    @Test(expected = Exception.class)
-    @InSequence(17)
-    public void NotDeleteUnknownId() {
-        productoRepository.delete(99999L);
-    }
+  
 }
