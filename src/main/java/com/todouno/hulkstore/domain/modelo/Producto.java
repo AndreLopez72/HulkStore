@@ -36,7 +36,7 @@ public class Producto {
     @ApiModelProperty("Descripcion del producto")
     private String descripcion;
 
-    @Column(name = "costo_unitario")
+    @Column(name = "uniCosto")
     @Min(1)
     @ApiModelProperty("Costo unitario")
     private Float uniCosto;
@@ -47,18 +47,19 @@ public class Producto {
     @ApiModelProperty("Codigo")
     private String codigo;
 
-    @Column(name = "produccion_informacion")
+    @Column(name = "datoProduccion")
     @Temporal(TemporalType.DATE)
     @Past
     @ApiModelProperty("Donde Fue elaborado el procucto")
     private Date datoProduccion;
 
-    @Column(name = "cantidad_producto")
+    @Column(name = "catidad")
     @ApiModelProperty("Numero de productos")
     private Integer catidad;
 
-    @Column(name = "image_url")
+    @Column(name = "imageURL")
     @ApiModelProperty("URL de la imagen")
+    @Size(min = 1, max = 100)
     private String imageURL;
 
     @Enumerated
